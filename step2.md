@@ -7,7 +7,7 @@ Now that MicroK8s is up and running, the next step is to install Ingress and KSe
 Ingress controllers are vital for managing access to your services from outside the Kubernetes cluster. Enable Ingress by executing the following command:
 
 ```bash
-microk8s enable ingress
+sudo microk8s enable ingress
 ```
 
 This step allows you to route external traffic to your services inside the MicroK8s cluster.
@@ -16,14 +16,14 @@ Enable Cert-Manager
 If you haven't enabled Cert-Manager in the previous step, please do so. Cert-Manager automates the management and issuance of TLS certificates:
 
 ```bash
-microk8s enable cert-manager
+sudo microk8s enable cert-manager
 ```
 
 # Enable Helm 3
 
 Helm is a package manager for Kubernetes, making it easier to deploy and manage applications. Helm 3 is the latest version and doesn't require Tiller. Enable it by running:
 ```bash
-microk8s enable helm3
+sudo microk8s enable helm3
 ```
 
 # Configure kubectl and helm Aliases
@@ -42,8 +42,22 @@ alias helm='microk8s.helm3'
 
 This step ensures that you can use Helm to install and manage Kubernetes applications.
 
+Add user to microk8s group, so `sudo` is not required:
+```bash
+sudo usermod -a -G microk8s $(whoami)
+newgrp microk8s
+```
+
 Install KServe
-With all prerequisites in place, you're now ready to install KServe. KServe provides a serverless framework to deploy and manage machine learning models easily. Use the following command to apply the KServe runtime configuration:
+With all prerequisites in place, you're now ready to install KServe. KServe provides a serverless framework to deploy and manage machine learning models easily. 
+
+Use the following command to apply the KServe CRDs:
+
+```bash
+kubectl apply -f https://github.com/kserve/kserve/releases/download/v0.11.0/kserve.yaml
+```
+
+Use the following command to apply the KServe runtime configuration:
 
 ```bash
 kubectl apply -f https://github.com/kserve/kserve/releases/download/v0.11.0/kserve-runtimes.yaml
