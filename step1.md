@@ -34,7 +34,7 @@ sudo microk8s enable gpu
 kubectl is a command-line tool for interacting with Kubernetes clusters. MicroK8s has its own version of kubectl for convenience, but if you prefer to use the standalone version of kubectl or integrate MicroK8s with an existing Kubernetes workflow, you'll need to add the MicroK8s configuration to your ~/.kube/config file. Execute the following command to do so:
 
 ```bash
-sudo kubectl config view --raw > ~/.kube/config
+sudo microk8s kubectl config view --raw > ~/.kube/config
 ```
 This command exports the current MicroK8s configuration into the default kubectl configuration file, allowing you to manage MicroK8s with kubectl.
 
