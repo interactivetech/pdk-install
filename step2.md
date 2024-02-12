@@ -26,6 +26,14 @@ Helm is a package manager for Kubernetes, making it easier to deploy and manage 
 microk8s enable helm3
 ```
 
+# Enable Istio
+
+Istio a service mesh that extends Kubernetes to provide traffic management, telemetry, security, and policy for complex deployments. Enable it by running:
+```bash
+sudo microk8s enable community
+sudo microk8s enable istio
+```
+
 # Configure kubectl and helm Aliases
 
 To make command execution easier, set up aliases for microk8s.kubectl and microk8s.helm3. These aliases allow you to use kubectl and helm commands as if you were working with a standard Kubernetes cluster:
