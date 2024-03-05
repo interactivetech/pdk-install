@@ -45,6 +45,11 @@ This step ensures that you can use Helm to install and manage Kubernetes applica
 Install KServe
 With all prerequisites in place, you're now ready to install KServe. KServe provides a serverless framework to deploy and manage machine learning models easily. Use the following command to apply the KServe runtime configuration:
 
+
+```bash
+kubectl apply -f https://github.com/kserve/kserve/releases/download/v0.11.0/kserve.yaml
+```
+
 ```bash
 kubectl apply -f https://github.com/kserve/kserve/releases/download/v0.11.0/kserve-runtimes.yaml
 ```
