@@ -2,6 +2,16 @@
 
 Install MicroK8s on Ubuntu using Snap package manager.
 
+## If using WSL (Windows Subsystem for Linux)
+
+Enable systemd and restart WSL
+
+```bash
+echo -e "[boot]\nsystemd=true" | sudo tee /etc/wsl.conf
+wsl --shutdown
+wsl
+```
+
 ## Install MicroK8s
 
 Enter the following command in the terminal. This command installs MicroK8s and marks it as a classic snap, allowing it to function with the necessary permissions and access:
